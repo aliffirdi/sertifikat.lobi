@@ -77,7 +77,7 @@ $(function() {
 		});
 	});
 
-	$(".my-login-validation").submit(function() {
+	$("#cari").click(function() {
 		var form = $(this);
         if (form[0].checkValidity() === false) {
           event.preventDefault();
@@ -86,9 +86,23 @@ $(function() {
 		var userId = $("#user-id").val();
 		var baseUrl = location.href;
 
-		location.href = baseUrl+"sertifikat/peserta-"+userId+".pdf";
+		linkSertifikat("sertifikat/peserta-"+userId+".pdf");
 
 
 		form.addClass('was-validated');
 	});
+
+	$(".my-login-validation").on('keypress',function(e) {
+		if(e.which == 13) {
+			var form = $(this);
+			var userId = $("#user-id").val();
+			var baseUrl = location.href;
+
+			linkSertifikat("sertifikat/peserta-"+userId+".pdf");
+		}
+	});
+
+	function linkSertifikat(url) {
+		window.location = url;
+	  }
 });
