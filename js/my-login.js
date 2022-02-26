@@ -83,6 +83,12 @@ $(function() {
           event.preventDefault();
           event.stopPropagation();
         }
+		var userId = $("#user-id").val();
+		var baseUrl = location.href;
+
+		location.href = baseUrl+"sertifikat/peserta-"+userId+".pdf";
+
+
 		form.addClass('was-validated');
 	});
 });
